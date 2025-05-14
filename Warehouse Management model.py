@@ -183,15 +183,15 @@ if st.button("Optimize Production Plan"):
                 prod_data.append(row)
             st.table(pd.DataFrame(prod_data).set_index("Item"))
             
-            # Inventory Levels
-            st.subheader("Inventory Levels")
-            inv_data = []
-            for i in items:
-                row = {"Item": i}
-                for t in periods:
-                    row[f"Period {t}"] = round(I[i, t].X, 2)
-                inv_data.append(row)
-            st.table(pd.DataFrame(inv_data).set_index("Item"))
+            # # Inventory Levels
+            # st.subheader("Inventory Levels")
+            # inv_data = []
+            # for i in items:
+            #     row = {"Item": i}
+            #     for t in periods:
+            #         row[f"Period {t}"] = round(I[i, t].X, 2)
+            #     inv_data.append(row)
+            # st.table(pd.DataFrame(inv_data).set_index("Item"))
             
             # Setup Decisions
             st.subheader("Setup Decisions (1 = Setup performed)")
