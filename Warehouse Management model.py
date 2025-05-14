@@ -140,16 +140,16 @@ if st.button("Optimize Production Plan"):
         # Add constraints
         status_placeholder.info("Adding constraints...")
         # Inventory balance
-        for i in items:
-            for t in periods:
-                if t == 1:
-                    # First period (no initial inventory)
-                    model.addConstr(x[i, t] - demand_data[(i, t)] == I[i, t], 
-                                   name=f"inv_balance_{i}_{t}")
-                else:
-                    # Subsequent periods
-                    model.addConstr(I[i, t-1] + x[i, t] - demand_data[(i, t)] == I[i, t], 
-                                   name=f"inv_balance_{i}_{t}")
+        # for i in items:
+        #     for t in periods:
+        #         if t == 1:
+        #             # First period (no initial inventory)
+        #             model.addConstr(x[i, t] - demand_data[(i, t)] == I[i, t], 
+        #                            name=f"inv_balance_{i}_{t}")
+        #         else:
+        #             # Subsequent periods
+        #             model.addConstr(I[i, t-1] + x[i, t] - demand_data[(i, t)] == I[i, t], 
+        #                            name=f"inv_balance_{i}_{t}")
         
         # Production capacity
         for i in items:
